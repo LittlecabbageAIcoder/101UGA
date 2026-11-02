@@ -3,7 +3,7 @@
 Public website and member portal for Hong Kong Air Cadet Corps No. 101 Squadron (HKUGA College).
 
 **Live site (GitHub Pages):** after the first deploy, open  
-`https://<github-username>.github.io/hkacc101/`
+`https://LittlecabbageAIcoder.github.io/101UGA/`
 
 ## Notes
 
