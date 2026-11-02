@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Area｜團員專區 — HKACC No. 101 Squadron</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="members-page">
+    <header class="members-header">
+      <a class="logo" href="index.html" aria-label="HKACC 101 Squadron home">
+        <span class="logo-mark">101</span>
+        <span class="logo-text">HKACC</span>
+      </a>
+      <nav class="members-nav" aria-label="Member">
+        <a href="members.html" aria-current="page">Board</a>
+        <a href="forms.html">Forms</a>
+      </nav>
+      <div class="members-user">
+        <span class="members-chip" id="welcome">Welcome</span>
+        <button class="btn btn-ghost dark btn-small" type="button" id="logout-btn">
+          Sign out
+        </button>
+      </div>
+    </header>
+
+    <main class="members-main">
+      <header class="members-hero">
+        <div class="members-hero-copy">
+          <p class="eyebrow" id="area-eyebrow">Members area · 團員專區</p>
+          <h1 id="board-title">Squadron board</h1>
+          <p class="section-lede" id="board-lede">
+            Signed in to No. 101 Squadron. Hand in forms, check Saturday meeting
+            details, and follow squadron news.
+          </p>
+        </div>
+        <div class="members-hero-aside" aria-hidden="true">
+          <img
+            src="images/101sqn-crest.png"
+            alt=""
+            width="160"
+            height="160"
+            class="members-crest"
+          />
+        </div>
+      </header>
+
+      <section class="members-actions" aria-label="Quick actions">
+        <a class="action-tile" href="forms.html" id="tile-handin" hidden>
+          <span class="action-kicker">Forms</span>
+          <strong>Hand in forms</strong>
+          <span>Event replies and returns</span>
+        </a>
+        <a class="action-tile" href="forms.html#absence" id="tile-absence" hidden>
+          <span class="action-kicker">Leave</span>
+          <strong>Parents letter of absence</strong>
+          <span>Submit leave with parent acknowledgement</span>
+        </a>
+        <a class="action-tile" href="forms.html" id="tile-review" hidden>
+          <span class="action-kicker">Review</span>
+          <strong>Check submitted forms</strong>
+          <span>Review event forms and parents letters from cadets</span>
+        </a>
+        <a
+          class="action-tile"
+          href="https://sites.google.com/view/hkacc101/news-events"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="action-kicker">News</span>
+          <strong>101 Sqn events</strong>
+          <span>Open the squadron Google Site</span>
+        </a>
+      </section>
+
+      <section class="admin-panel" id="admin-panel" hidden>
+        <div class="admin-panel-head">
+          <h2 class="members-heading">Admin tools</h2>
+          <p class="members-events-copy">
+            Create accounts without the standard Gmail format, review exception
+            requests, and manage members. Passwords are hashed (PBKDF2); vault
+            data stays encrypted in this browser.
+          </p>
+        </div>
+
+        <div class="admin-create">
+          <h3 class="members-subheading">Create account</h3>
+          <p class="admin-create-note">
+            Admins may assign any email — the
+            <code>101sqn.(m/f)digits@gmail.com</code> rule is waived. The new
+            account is active immediately.
+          </p>
+          <form class="admin-create-form" id="admin-create-form" novalidate>
+            <div class="admin-create-grid">
+              <div class="field">
+                <label for="create-display">Display name</label>
+                <input id="create-display" name="displayName" type="text" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="create-username">Username</label>
+                <input
+                  id="create-username"
+                  name="username"
+                  type="text"
+                  autocomplete="off"
+                  required
+                  minlength="3"
+                />
+              </div>
+              <div class="field">
+                <label for="create-email">Email (any format)</label>
+                <input
+                  id="create-email"
+                  name="email"
+                  type="email"
+                  autocomplete="off"
+                  required
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div class="field">
+                <label for="create-password">Temporary password</label>
+                <input
+                  id="create-password"
+                  name="password"
+                  type="text"
+                  autocomplete="new-password"
+                  required
+                  minlength="6"
+                />
+              </div>
+              <div class="field">
+                <label for="create-role">Role</label>
+                <select id="create-role" name="role">
+                  <option value="cadet" selected>Cadet</option>
+                  <option value="officer">Officer (review forms only)</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+            </div>
+            <p class="form-status" id="create-status" hidden role="status"></p>
+            <button class="btn btn-primary" type="submit">Create account</button>
+          </form>
+        </div>
+
+        <h3 class="members-subheading">Pending exception requests</h3>
+        <div id="pending-list" class="admin-list"></div>
+
+        <h3 class="members-subheading">Member accounts</h3>
+        <div id="members-admin-list" class="admin-list"></div>
+      </section>
+
+      <div class="members-grid">
+        <section class="members-panel meeting-panel" aria-labelledby="next-meeting-heading">
+          <p class="panel-kicker">This week</p>
+          <h2 class="members-heading" id="next-meeting-heading">Next meeting</h2>
+          <dl class="meeting-facts">
+            <div>
+              <dt>Schedule</dt>
+              <dd>Every Saturday · <strong>14:00–17:00</strong></dd>
+            </div>
+            <div>
+              <dt>Roll call</dt>
+              <dd><strong>13:45</strong> sharp — arrive before the meeting starts</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>HKUGA College · 港大同學會書院, Wong Chuk Hang</dd>
+            </div>
+            <div>
+              <dt>Uniform</dt>
+              <dd>Working blue / PT kit as advised by duty NCO</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="members-panel" aria-labelledby="events-heading">
+          <p class="panel-kicker">Links</p>
+          <h2 class="members-heading" id="events-heading">Event list</h2>
+          <ul class="link-stack">
+            <li>
+              <a
+                href="https://sites.google.com/view/hkacc101/news-events"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>101 Sqn news &amp; events</span>
+                <span class="link-meta">Google Site</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.aircadets.org.hk/web/news.php"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>HKACC corps news</span>
+                <span class="link-meta">aircadets.org.hk</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hkacc101@gmail.com">
+                <span>Contact squadron</span>
+                <span class="link-meta">hkacc101@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <p class="join-note"><a href="index.html">← Back to public site</a></p>
+    </main>
+
+    <script src="auth.js?v=7"></script>
+    <script src="members.js?v=10"></script>
+  </body>
+</html>

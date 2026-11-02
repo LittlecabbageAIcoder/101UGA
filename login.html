@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Login｜團員登入 — HKACC No. 101 Squadron</title>
+    <meta
+      name="description"
+      content="Sign in to the HKACC No. 101 Squadron member portal."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="login-page">
+    <a class="skip-link" href="#login-form">Skip to login form</a>
+
+    <div class="login-shell">
+      <aside class="login-visual" aria-hidden="true">
+        <img
+          src="images/hkia-hero.jpg?v=heli"
+          alt="Hong Kong Government Flying Service Airbus H175 B-LVG"
+          width="2200"
+          height="1467"
+          fetchpriority="high"
+        />
+        <div class="login-visual-veil"></div>
+        <div class="login-visual-copy">
+          <p class="login-visual-brand">No. 101 Squadron</p>
+          <p class="login-visual-zh">第101中隊 · 團員登入</p>
+        </div>
+      </aside>
+
+      <main class="login-panel" id="main">
+        <a class="btn btn-ghost dark login-back" href="index.html">← Back</a>
+
+        <a class="login-home" href="index.html">
+          <span class="logo-mark">101</span>
+          <span class="logo-text">HKACC</span>
+        </a>
+
+        <h1>Member login</h1>
+        <p class="login-intro">
+          Sign in with your squadron account to view notices, meeting notes, and
+          training resources.
+        </p>
+
+        <form class="login-form" id="login-form" novalidate>
+          <div class="field">
+            <label for="member-id">Username</label>
+            <input
+              id="member-id"
+              name="memberId"
+              type="text"
+              autocomplete="username"
+              placeholder="Username or Gmail"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <div class="field-head">
+              <label for="password">Password</label>
+              <a class="field-link" href="mailto:hkacc101@gmail.com">Forgot password?</a>
+            </div>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Password"
+              required
+            />
+          </div>
+
+          <label class="check">
+            <input type="checkbox" name="remember" />
+            <span>Keep me signed in on this device</span>
+          </label>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+
+          <button class="btn btn-primary login-submit" type="submit">Sign in</button>
+        </form>
+
+        <p class="login-help">
+          Need an account?
+          <a href="register.html">Create account</a>
+          ·
+          <a href="exception.html">Exception request</a>
+        </p>
+
+        <aside class="login-corps-news" aria-label="Official HKACC news">
+          <p class="login-corps-label">Corps notices · 總部通告</p>
+          <p class="login-corps-status">
+            The official HKACC website is offline for a scheduled system upgrade.
+            The news board at <code>aircadets.org.hk/web/news.php</code> currently
+            redirects to the maintenance notice.
+          </p>
+          <a
+            class="login-corps-link"
+            href="https://www.aircadets.org.hk/en/maintenance/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open official maintenance notice
+            <span aria-hidden="true">↗</span>
+          </a>
+          <p class="login-corps-note">
+            During the upgrade, HQ still reaches members by internal email.
+            Public enquiries:
+            <a href="tel:+85227128900">+852 2712 8900</a>
+            ·
+            <a href="mailto:hq@aircadets.org.hk">hq@aircadets.org.hk</a>
+          </p>
+          <p class="login-corps-note">
+            When the portal returns, the news board will be:
+            <a
+              href="https://www.aircadets.org.hk/web/news.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              >aircadets.org.hk/web/news.php</a
+            >
+          </p>
+        </aside>
+      </main>
+    </div>
+
+    <script src="auth.js?v=5"></script>
+    <script src="login.js?v=6"></script>
+  </body>
+</html>

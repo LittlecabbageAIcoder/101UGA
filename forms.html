@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms｜表格 — HKACC No. 101 Squadron</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="members-page">
+    <header class="members-header">
+      <a class="logo" href="members.html" aria-label="Members home">
+        <span class="logo-mark">101</span>
+        <span class="logo-text">HKACC</span>
+      </a>
+      <nav class="members-nav" aria-label="Member">
+        <a href="members.html">Board</a>
+        <a href="forms.html" aria-current="page">Forms</a>
+      </nav>
+      <div class="members-user">
+        <span class="members-chip" id="welcome">Welcome</span>
+        <a class="btn btn-ghost dark btn-small" href="members.html">Board</a>
+        <button class="btn btn-ghost dark btn-small" type="button" id="logout-btn">
+          Sign out
+        </button>
+      </div>
+    </header>
+
+    <main class="members-main">
+      <header class="members-hero members-hero-compact">
+        <div class="members-hero-copy">
+          <p class="eyebrow" id="forms-eyebrow">Forms · 表格</p>
+          <h1 id="forms-title">Squadron forms</h1>
+          <p class="section-lede" id="forms-lede">
+            Hand in event replies or parents letters of absence, and track your submissions.
+          </p>
+        </div>
+      </header>
+
+      <div id="handin-section">
+        <div class="form-type-switch" role="tablist" aria-label="Form type">
+          <button
+            type="button"
+            class="btn btn-primary btn-small is-active"
+            data-form-type="event"
+            id="tab-event"
+          >
+            Event form
+          </button>
+          <button
+            type="button"
+            class="btn btn-ghost dark btn-small"
+            data-form-type="absence"
+            id="tab-absence"
+          >
+            Parents letter of absence
+          </button>
+        </div>
+
+        <form class="login-form handin-form" id="event-form">
+          <h2 class="members-heading">Event form</h2>
+          <div class="field">
+            <label for="event-name">Event name</label>
+            <input
+              id="event-name"
+              name="eventName"
+              type="text"
+              placeholder="e.g. Saturday meeting / joint activity"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="event-date">Event date</label>
+            <input id="event-date" name="eventDate" type="date" required />
+          </div>
+          <div class="field">
+            <label for="event-cadet">Cadet name</label>
+            <input
+              id="event-cadet"
+              name="cadetName"
+              type="text"
+              placeholder="Your name"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="event-details">Details / reply</label>
+            <textarea
+              id="event-details"
+              name="details"
+              rows="4"
+              placeholder="Attendance reply, notes, or other event return details…"
+              required
+            ></textarea>
+          </div>
+          <p class="form-status" id="event-status" role="status" aria-live="polite" hidden></p>
+          <button class="btn btn-primary login-submit" type="submit">Hand in event form</button>
+        </form>
+
+        <form class="login-form handin-form" id="absence-form" hidden>
+          <h2 class="members-heading">Parents letter of absence</h2>
+          <div class="field">
+            <label for="absence-cadet">Cadet name</label>
+            <input
+              id="absence-cadet"
+              name="cadetName"
+              type="text"
+              placeholder="Cadet full name"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="absence-date">Date(s) of absence</label>
+            <input
+              id="absence-date"
+              name="absenceDate"
+              type="text"
+              placeholder="e.g. 2026-11-08 or 8–15 Nov 2026"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="absence-reason">Reason for absence</label>
+            <textarea
+              id="absence-reason"
+              name="reason"
+              rows="4"
+              placeholder="Please state the reason for leave…"
+              required
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="parent-name">Parent / guardian name</label>
+            <input
+              id="parent-name"
+              name="parentName"
+              type="text"
+              placeholder="Parent or guardian"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="parent-contact">Parent / guardian contact</label>
+            <input
+              id="parent-contact"
+              name="parentContact"
+              type="text"
+              placeholder="Phone or email"
+              required
+            />
+          </div>
+          <label class="check">
+            <input type="checkbox" id="parent-ack" name="parentAck" required />
+            <span>I confirm this letter is submitted with parent / guardian acknowledgement.</span>
+          </label>
+          <p class="form-status" id="absence-status" role="status" aria-live="polite" hidden></p>
+          <button class="btn btn-primary login-submit" type="submit">
+            Hand in parents letter
+          </button>
+        </form>
+      </div>
+
+      <section class="members-panel forms-inbox" aria-labelledby="submitted-heading">
+        <p class="panel-kicker" id="forms-inbox-kicker">Inbox</p>
+        <h2 class="members-heading" id="submitted-heading">Submitted forms</h2>
+        <p class="members-events-copy" id="forms-scope">Your recent submissions.</p>
+        <div id="forms-list" class="admin-list"></div>
+      </section>
+
+      <p class="join-note"><a href="members.html">← Back to squadron board</a></p>
+    </main>
+
+    <script src="auth.js?v=7"></script>
+    <script src="forms.js?v=2"></script>
+  </body>
+</html>

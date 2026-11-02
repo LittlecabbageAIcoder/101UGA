@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exception request｜例外申請 — HKACC No. 101 Squadron</title>
+    <meta
+      name="description"
+      content="Request admin approval for a Gmail address outside the standard 101 Sqn format."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="login-page">
+    <a class="skip-link" href="#exception-form">Skip to exception form</a>
+
+    <div class="login-shell">
+      <aside class="login-visual" aria-hidden="true">
+        <img
+          src="images/gfs-ec155.jpg"
+          alt="Hong Kong Government Flying Service EC-155 at Hong Kong International Airport (HKG)"
+          width="1600"
+          height="962"
+          fetchpriority="high"
+        />
+        <div class="login-visual-veil"></div>
+        <div class="login-visual-copy">
+          <p class="login-visual-brand">No. 101 Squadron</p>
+          <p class="login-visual-zh">第101中隊 · 例外申請</p>
+        </div>
+      </aside>
+
+      <main class="login-panel" id="main">
+        <a class="btn btn-ghost dark login-back" href="login.html">← Back</a>
+
+        <a class="login-home" href="index.html">
+          <span class="logo-mark">101</span>
+          <span class="logo-text">HKACC</span>
+        </a>
+
+        <h1>Exception request</h1>
+        <p class="login-intro">
+          Use this page only if your Gmail is <strong>not</strong>
+          <code>101sqn.(m/f)xxxxxxx@gmail.com</code> (digits after m/f). An admin
+          must approve your request before you can sign in.
+        </p>
+
+        <form class="login-form" id="exception-form" novalidate>
+          <div class="field">
+            <label for="display-name">Display name</label>
+            <input id="display-name" name="displayName" type="text" placeholder="Your name" />
+          </div>
+
+          <div class="field">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              placeholder="Choose a username"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="email">Gmail (exception)</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="your.name@gmail.com"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="reason">Reason for exception</label>
+            <textarea
+              id="reason"
+              name="reason"
+              rows="4"
+              placeholder="Explain why you cannot use a standard 101sqn.(m/f) + digits Gmail…"
+              required
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              placeholder="At least 6 characters"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="password-confirm">Confirm password</label>
+            <input
+              id="password-confirm"
+              name="passwordConfirm"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Re-enter password"
+              required
+            />
+          </div>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+
+          <button class="btn btn-primary login-submit" type="submit">
+            Submit exception request
+          </button>
+        </form>
+
+        <p class="login-help">
+          Have a standard squadron Gmail?
+          <a href="register.html">Create account</a>
+          ·
+          <a href="login.html">Sign in</a>
+        </p>
+      </main>
+    </div>
+
+    <script src="auth.js?v=5"></script>
+    <script src="exception.js?v=2"></script>
+  </body>
+</html>
